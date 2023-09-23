@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const informationForm = document.getElementById("informationForm");
     const createEntryButton = document.getElementById("createEntry");
+    const searchButton = document.getElementById("searchButton");
     const resultDiv = document.getElementById("result");
+    const searchIDInput = document.getElementById("searchID");
 
     // Replace this with your contract address and ABI
     const contractAddress = "0x42C345F2B5f70A98e9095f327f6AF848b7a8A7ec";
@@ -108,6 +110,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Display a success message
             resultDiv.innerText = `Transaction Hash: ${transaction.transactionHash}`;
+        } catch (error) {
+            console.error(error);
+            resultDiv.innerText = "Error: " + error.message;
+        }
+    });
+
+    searchButton.addEventListener("click", async () => {
+        const searchID = searchIDInput.value;
+        try {
+            // Call the contract to retrieve information by ID
+            const info = await contract.methods.getInformationByInformationID(searchID).call();
+            
+            // Check if the information exists
+            if (info.informationID !== "0") {
+                resultDiv.innerHTML = `
+                    <p>Information ID: ${info.informationID}</p>
+                    <p>Name: ${info.name}</p>
+                    <p>Email: ${info.email}</p>
+                    <p>Hash Code: ${info.hashCode}</p>
+                `;
+            } else {
+                resultDiv.innerText = "Information entry not found.";
+            }
         } catch (error) {
             console.error(error);
             resultDiv.innerText = "Error: " + error.message;

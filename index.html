@@ -7,21 +7,42 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Information Contract</h1>
-    <div class="container">
-        <form id="informationForm">
-            <label for="informationID">Information ID:</label>
-            <input type="number" id="informationID" required>
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-            <button type="button" id="createEntry">Create Entry</button>
-        </form>
-        <div id="result"></div>
-    </div>
+    <header>
+        <h1>Information Contract</h1>
+    </header>
+    <main class="container">
+        <section class="entry-form">
+            <h2>Create an Entry</h2>
+            <form id="informationForm">
+                <div class="form-group">
+                    <label for="informationID">Information ID:</label>
+                    <input type="number" id="informationID" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <button type="button" id="createEntry">Create Entry</button>
+            </form>
+        </section>
+        <section class="search-form">
+            <h2>Search by ID</h2>
+            <div class="form-group">
+                <label for="searchID">Enter ID:</label>
+                <input type="number" id="searchID">
+            </div>
+            <button type="button" id="searchButton">Search</button>
+        </section>
+        <section class="result">
+            <h2>Search Result</h2>
+            <div id="result"></div>
+        </section>
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
     <script src="app.js"></script>
-
 </body>
 </html>
