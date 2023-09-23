@@ -51,7 +51,8 @@ label {
 
 input[type="number"],
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+input[type="text"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -78,4 +79,38 @@ button:hover {
     font-weight: bold;
     color: #333;
     font-size: 18px;
+}
+
+/* Additional styles for the "Search by Hash Code" section */
+.search-form {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.search-form h2 {
+    font-size: 24px;
+    color: #007bff;
+    margin-top: 20px;
+}
+
+#searchHashCode {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+#searchHashCodeButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+#searchHashCodeButton:hover {
+    background-color: #0056b3;
 }
